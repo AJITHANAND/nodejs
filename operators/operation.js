@@ -1,0 +1,5 @@
+var read=require('readline-sync')
+var a=read.question('Enter a number: ')
+var b=read.question('Enter another number: ')
+var sum =Number(a)+Number(b)
+console.log(a+'+'+b+'='+sum)
