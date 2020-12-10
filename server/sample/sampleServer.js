@@ -8,8 +8,12 @@ function server(req,res){
 }
 
 */
-
+var fs=require('fs')
 http.createServer(function(req,res){
-    res.write('welcome')
-    res.end()
+    fs.readFile('sampleHTML.html',function (err,data){
+        res.writeHead(200,{'Content-Type':'text/html'})
+        res.write(data)
+        res.end()
+
+    })
 }).listen(7000)

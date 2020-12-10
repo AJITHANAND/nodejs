@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="dt.css">
+</head>
+<body bgcolor='#d2d9d4'>
+    <style>h1{
+        text-align: center;
+        text-decoration: underline;
+    }
+    label{
+        width:180px;
+        font-size: x-large;
+        text-align:left;
+        padding-top: 15px;
+        display: inline-block;
+    }
+    input{
+        width: 300px;
+        height: 25px;
+        padding-right: 0%;
+        border-radius: 5px;
+        
+    }
+    button{
+        border: 10px;
+        margin-top: 10px;
+        width: 100px;
+        margin-left: 58px;
+        height: 30px;
+        border-radius: 5px;
+        background-color: #b8afae;
+        border: 2px solid black;
+    }
+    .al{
+        margin-left: 35%;
+    }
+    
+    .ge{
+        margin-left: auto;
+        margin-right: 12px;
+        width: auto;
+        height: 15px;
+       
+    }
+    
+    .textarea{
+        resize: none;
+        width: 300px;
+        height: 100px;
+        margin-top: 10px;
+        vertical-align: middle;
+        border-radius: 5px;
+        border: 2px solid black;
+    }</style>
+    <h1>Registration Form</h1>
+    <div class="al">
+    <form action="">
+        
+        <label for="fname" >First Name</label>
+        <input type="text"  id="fname">
+        <br>
+        <label for="lname">Last Name</label>
+        <input type="text">
+        <br>
+        <label for="nickName">Nick Name</label>
+        <input type="text">
+        <br>
+        <label for="mail">E-mail</label>
+        <input type="email">
+        <br>
+        <label for="pass">Password</label>
+        <input type="password">
+        <br>
+        <label for="dob">Date of Birth</label>
+        <input type="text">
+        <br>
+        <label for="sex">Gender</label>
+        
+        <input class="ge" type="radio" name=gender values="Male">
+        <label class="ge" for="male">Male</label>
+        <input class="ge" type="radio" name=gender value="Female">
+        <label class="ge" for="Female">Female</label>
+        <input  class="ge" type="radio" name=gender value="Others">
+        <label class="ge" for="Others">Others</label>
+        <br>
+        <label for="phone">Mobile</label>
+        <input type="number">
+        <br>
+        <label for="addr">Address</label>
+        <textarea class='textarea'></textarea>
+        <br>
+        <button onclick="donothing()">submit</button>
+        <button>reset</button>
+    </form>
+</div>
+<script>
+    function donothing(){
+        alert("pass")
+    }
+</script>
+</body>
+</html>
