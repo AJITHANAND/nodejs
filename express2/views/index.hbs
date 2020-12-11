@@ -1,0 +1,41 @@
+{{!-- old contents
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+<h1>{{name}}</h1>
+
+ --}}
+
+{{!-- array iteration
+
+{{#each values}}
+
+<h1>{{@index}}. {{this}}</h1>
+
+{{/each}}
+
+--}}
+
+{{!-- accessing inner obj.
+<h1>{{sample.comments.comment}}</h1>
+<h2>commented on {{sample.comments.date}}</h2>
+
+--}}
+{{!-- if syntax
+{{#if person.admin}}
+<h1>This is admin</h1>
+{{else}}
+<h1>this is normal user</h1>
+{{/if}}
+
+--}}
+
+{{#with sample}}
+<h1>{{comments.comment}}</h1>
+
+{{#with comments}}
+
+<h1>{{date}}</h1>
+{{/with}}
+
+{{/with}}
+
