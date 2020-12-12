@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
       image:'https://i01.appmifile.com/webfile/globalimg/in/cms/D1301D76-E04D-EF09-6195-53229DE6D543.jpg'
     }
   ]
-  res.render('index', { products });
+  res.render('index', { products,admin:false});
 });
 
 module.exports = router;
