@@ -1,8 +1,15 @@
 var express = require('express');
+const productHelpers = require('../helpers/product-helpers');
 var router = express.Router();
+var productHelper=require('../helpers/product-helpers')
 
-/* GET home page. */
+/* GET users listing. */
 router.get('/', function(req, res, next) {
+  productHelper.getAllProducts().then((products)=>{
+    console.log(products)
+    res.render('admin/view-products',{admin:true,products})
+  })
+  /* dummy 
   let products=[
     {
       name:"IPHONE 11",
@@ -30,7 +37,30 @@ router.get('/', function(req, res, next) {
       image:'https://i01.appmifile.com/webfile/globalimg/in/cms/D1301D76-E04D-EF09-6195-53229DE6D543.jpg'
     }
   ]
-  res.render('index', { products,admin:false});
+  */
+ // res.render('admin/view-products',{admin:true,products})
 });
+
+router.get('/add-product',function(req,res){
+  res.render('admin/add-product')
+  
+})
+router.post('/add-product',(req,res)=>{
+  console.log(req.body)
+  console.log(req.files.Image)
+  productHelpers.addProduct(req.body,(id)=>{
+    let image=req.files.Image
+    console.log(id)
+    image.mv('./public/product-images/'+id+'.jpg',(err,done)=>{
+      if(!err){
+        res.render('admin/add-product')
+      }
+      else{
+        console.log(err)
+      }
+    })
+    res.render("admin/add-product")
+  })
+})
 
 module.exports = router;
