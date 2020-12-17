@@ -4,8 +4,16 @@ const productHelpers = require('../helpers/product-helpers');
 var router = express.Router();
 var productHelper=require('../helpers/product-helpers')
 
+const verifyLogin=(req,res,next)=>{
+  if(req.session.adminLogin){
+    next()
+  }
+  else{
+    res.render('admin/login')
+  }
+}
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/',verifyLogin, function(req, res, next) {
   productHelper.getAllProducts().then((products)=>{
     console.log(products)
     res.render('admin/view-products',{admin:true,products})
@@ -86,4 +94,23 @@ router.post('/edit-product/:id',(req,res)=>{
     
   })
 })
+
+router.get('/login',(req,res)=>{
+ if(verifyLogin){
+   res.redirect('/admin')
+ }else{
+   res.render('admin/login')
+ }
+})
+router.post('/login',(req,res)=>{
+  let email='admin@mail.com'
+  let pass='admin'
+  if(req.body.Email===email&&req.body.Password===pass){
+    req.session.adminLogin=true
+    res.redirect('/admin')
+  }else{
+    res.redirect('/login')
+  }
+})
+
 module.exports = router;
